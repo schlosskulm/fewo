@@ -1,0 +1,163 @@
+{% load static %}
+
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="Rent your holiday apartment in Schloßkulm, Thuringia and enjoy the quietness of the German countryside.">
+  <meta name="author" content="Rafaela Wetzel">
+  <title>{% block title %}{% endblock %}</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'schlosskulm-favicon.ico' %}">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <!-- Modal functionality for all-bookings.html and your-bookings.html pages: modal opens automatically upon page loading if user is not authenticated -->
+  <script>
+    $(document).ready(function () {
+      $("#notAuthorizedModal").modal('show');
+    });
+  </script>
+</head>
+
+<body class="padding-bottom">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-lg px-2">
+      <a class="navbar-brand nav-margin" href="{% url 'main-page' %}">Schloßkulm Rental Apartments</a>
+      <button class="navbar-toggler border-0 hvr-radial-out" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fa-solid fa-ellipsis"></i>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink1"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
+              House
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+              <a class="dropdown-item" href="{% url 'upper-apartment' %}" aria-current="page">Upper Apartment</a>
+              <a class="dropdown-item" href="{% url 'lower-apartment' %}" aria-current="page">Lower Apartment</a>
+              <a class="dropdown-item" href="{% url 'house' %}" aria-current="page">Rent House</a>
+              <a class="dropdown-item" href="{% url 'house-rules' %}" aria-current="page">House Rules</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink2"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
+              Schloßkulm
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+              <a class="dropdown-item" href="{% url 'day-trips' %}" aria-current="page">Day Trips</a>
+              <a class="dropdown-item" href="{% url 'gallery' %}" aria-current="page">Gallery</a>
+              <a class="dropdown-item" href="{% url 'location' %}" aria-current="page">Location</a>
+            </div>
+          </li>
+          {% if user.is_authenticated and not user.is_superuser and booking_exists %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink3"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
+              Booking
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+              <a class="dropdown-item" href="{% url 'booking' %}" aria-current="page">Booking Form</a>
+              <a class="dropdown-item" href="{% url 'your-bookings' %}" aria-current="page">Your Bookings</a>
+            </div>
+          </li>
+          {% elif user.is_authenticated and user.is_superuser %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink3"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
+              Booking
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+              <a class="dropdown-item" href="{% url 'booking' %}" aria-current="page">Booking Form</a>
+              <a class="dropdown-item" href="{% url 'your-bookings' %}" aria-current="page">Your Bookings</a>
+              <a class="dropdown-item" href="{% url 'all-bookings' %}" aria-current="page">All Bookings</a>
+            </div>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link hvr-bounce-in margin-left-right"
+              href="{% url 'account_login' %}?next={% url 'booking' %}" aria-current="page">Booking</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'about-us' %}" aria-current="page">About
+              Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'contact' %}"
+              aria-current="page">Contact</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link hvr-bounce-in margin-left-right {% if request.path == logout.url %}active{% endif %}"
+              aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link hvr-bounce-in margin-left-right {% if request.path == signup_url %}active{% endif %}"
+              aria-current="page" href="{% url 'account_signup' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hvr-bounce-in margin-left-right {% if request.path == login_url %}active{% endif %}"
+              aria-current="page" href="{% url 'account_login' %}">Login</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container-fluid text-center">
+      {% block content %}
+      <!-- Content Goes here -->
+      {% endblock content %}
+    </div>
+  </main>
+
+  <footer class="fixed-bottom p-2 shadow-lg">
+    <div class="container">
+      <div class="row">
+        {% if user.is_authenticated %}
+        <div class="col-sm-3 footer-font-size">
+          Logged in as: {{ user.username }}
+        </div>
+        {% endif %}
+        <div class="col-sm-6 text-center footer-font-size">
+          This project is for purposes of education only.
+        </div>
+        <div class="col-sm-3 d-flex justify-content-end footer-font-size">
+          © 2024 Rafaela Wetzel
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/c28c3d1b4e.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap 5.3 Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+  <!-- Manage Bookings JS File-->
+  <script src="{% static 'js/manage-bookings.js' %}"></script>
+</body>
+
+</html>

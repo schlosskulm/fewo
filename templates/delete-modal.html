@@ -1,0 +1,26 @@
+<!-- Modal template - triggers delete booking functionality -->
+ 
+<!-- Button that triggers modal -->
+<button type="button" class="btn btn-card-delete border-dark" data-bs-toggle="modal" data-bs-target="#{{ booking.id }}-deleteModal">
+    Delete booking
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="{{ booking.id }}-deleteModal" tabindex="-1" aria-labelledby="{{ booking.id }}-deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="{{ booking.id }}-deleteModalLabel">Booking deletion</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete your booking?<br>
+          This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-card-confirm border-dark" data-bs-dismiss="modal">Close</button>
+          <button data-booking_id="{{ booking.id }}" class="btn btn-card-delete border-dark delete-button">Delete booking</button>
+        </div>
+      </div>
+    </div>
+  </div>

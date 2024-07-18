@@ -1,0 +1,24 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-purple border-dark" data-bs-toggle="modal" data-bs-target="#loginNeededModal">
+    Book With Us
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="loginNeededModal" tabindex="-1" aria-labelledby="loginNeededModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="loginNeededModalLabel">Information</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          You need to be logged in to make a booking.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-purple border-dark" data-bs-dismiss="modal">Close</button>
+          <a href="{% url 'account_login' %}?next={% url 'booking' %}" class="btn btn-purple border-dark">OK</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

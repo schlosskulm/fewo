@@ -1,0 +1,26 @@
+<!-- Modal template - triggers cancel booking functionality -->
+ 
+<!-- Button that triggers modal -->
+<button type="button" class="btn btn-card-cancel border-dark" data-bs-toggle="modal" data-bs-target="#{{ booking.id }}-cancelModal">
+    Cancel booking
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="{{ booking.id }}-cancelModal" tabindex="-1" aria-labelledby="{{ booking.id }}-cancelModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="{{ booking.id }}-cancelModalLabel">Booking cancellation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to cancel your booking?<br>
+          This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-card-confirm border-dark" data-bs-dismiss="modal">Close</button>
+          <button data-booking_id="{{ booking.id }}" class="btn btn-card-cancel border-dark cancel-button">Cancel booking</button>
+        </div>
+      </div>
+    </div>
+  </div>

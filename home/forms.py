@@ -33,20 +33,19 @@ class BookingForm(forms.ModelForm):
         if birth_date is not None:
             if birth_date > datetime.date.today():
                 raise forms.ValidationError(
-                    "Your birth date cannot be in the future!")
+                    "Dein Geburtsdatum kann nicht in der Zukunft liegen!")
             elif departure_date is not None and arrival_date is not None:
                 if departure_date == arrival_date:
                     raise forms.ValidationError(
-                        """Your arrival date cannot be the same day as your
-                        departure date!""")
+                        """Der Ankunftstag kann nicht derselbe sein wie der Abreisetag!""")
                 elif arrival_date is not None:
                     if arrival_date < datetime.date.today():
                         raise forms.ValidationError(
-                            "Your booking date cannot be in the past!")
+                            "Dein Buchungsdatum kann nicht in der Vergangenheit liegen!")
                     elif departure_date is not None:
                         if departure_date < datetime.date.today():
                             raise forms.ValidationError(
-                                "Your booking date cannot be in the past!")
+                                "Dein Buchungsdatum kann nicht in der Vergangenheit liegen!")
 
 
 class ContactForm(ModelForm):
@@ -54,7 +53,7 @@ class ContactForm(ModelForm):
         model = Contact
         fields = ['name', 'mail', 'inquiry']
         labels = {
-            "name":  "Your Name",
+            "name":  "Dein Name",
             "mail": "E-Mail",
-            "inquiry": "Message",
+            "inquiry": "Deine Nachricht",
         }

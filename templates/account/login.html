@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
+{% block title %}Login Page - Schloßkulm Rental Apartments{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <ul class="list-group-flush rounded-corners">
+        <li class="list-group-item">
+          <div class="styling-messages alert alert-{{ message.tags }}">{{ message }}</div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>
+<br>
+
+{% endfor %}
+{% endif %}
+
+<h1>{% trans "Sign In" %}</h1>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-6 background-grey border-pink rounded-corners pt-2">
+            <p>{% blocktrans %}If you have not created an account yet, then please
+              <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+          </div>
+          <div class="col-sm-3">
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <form class="login" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="primaryAction btn btn-purple border-dark" type="submit">{% trans "Sign In" %}</button>
+      </form>
+
+      {% endblock content %}
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>

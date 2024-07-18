@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}All Bookings - Schloßkulm Rental Apartments{% endblock %}
+{% block title %}Alle Buchungen - Schloßkulm Ferienwohnungen{% endblock %}
 
 {% block content %}
 
@@ -27,39 +27,39 @@
 {% endfor %}
 {% endif %}
 
-<h1>All Bookings</h1>
+<h1>Alle Buchungen</h1>
 
 {% if user.is_authenticated and user.is_superuser %}
 {% for booking in object_list %}
 
 <div class="card mx-auto card-style">
     <div class="card-body">
-        <h2 class="card-title">Booking number {{booking.id}}</h2><br>
+        <h2 class="card-title">Buchungsnummer {{booking.id}}</h2><br>
         <h6 class="card-subtitle mb-2 text-body-secondary">
-            <b>Booking date:</b><br>{{booking.booking_date}}<br><br>
+            <b>Buchungsdatum:</b><br>{{booking.booking_date}}<br><br>
             <b>Status:</b> {{booking.booking_status}}<br><br>
         </h6>
         <p class="card-text">
             <b>Name:</b><br>
             {{booking.first_name}} {{booking.last_name}}<br>
-            <b>Address:</b><br>
+            <b>Adresse:</b><br>
             {{booking.address}}<br>
             {{booking.zip_code}} {{booking.city}}<br>
             {{booking.country}}<br><br>
-            <b>Phone:</b> {{booking.phone_number}}<br>
+            <b>Telefonnummer:</b> {{booking.phone_number}}<br>
             <b>E-Mail:</b> {{booking.email}}<br>
-            <b>Nationality:</b> {{booking.nationality}}<br>
-            <b>Passport number:</b> {{booking.passport_number}}<br><br>
-            <b>Arrival:</b> {{booking.arrival_date}}<br>
-            <b>Departure:</b> {{booking.departure_date}}<br>
+            <b>Staatsangehörigkeit:</b> {{booking.nationality}}<br>
+            <b>Passnummer:</b> {{booking.passport_number}}<br><br>
+            <b>Ankunftsdatum:</b> {{booking.arrival_date}}<br>
+            <b>Abreisedatum:</b> {{booking.departure_date}}<br>
             <b>{{booking.booking_status}}:</b> {{booking.booking_item}}<br>
-            <b>Guests:</b> {{booking.amount_guests}}<br>
-            <b>Animals:</b> {{booking.animals}}<br><br>
-            <b>Your message:</b><br>
+            <b>Anzahl Gäst*innen:</b> {{booking.amount_guests}}<br>
+            <b>Tiere:</b> {{booking.animals}}<br><br>
+            <b>Deine Nachricht:</b><br>
             {{booking.message}}<br>
         </p>
 
-        {% if booking.booking_status == "Requested" %}
+        {% if booking.booking_status == "Angefragt" %}
         <!--Confirm Button-->
         {% include "confirm-modal.html" %}
         <!--Cancel Button-->
@@ -67,13 +67,13 @@
         <!--Delete Button-->
         {% include "delete-modal.html" %}
 
-        {% elif booking.booking_status == "Confirmed" %}
+        {% elif booking.booking_status == "Bestätigt" %}
         <!--Cancel Button-->
         {% include "cancel-modal.html" %}
         <!--Delete Button-->
         {% include "delete-modal.html" %}
 
-        {% elif booking.booking_status == "Cancelled" %}
+        {% elif booking.booking_status == "Storniert" %}
         <!--Delete Button-->
         {% include "delete-modal.html" %}
         {% endif %}

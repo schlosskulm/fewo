@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Renting The House - Schloßkulm Rental Apartments{% endblock %}
+
+{% block content %}
+
+<h1>Renting The House</h1>
+
+<div class="container">
+    <div class="row column-gap-5">
+        <div class="col-sm-6">
+            <p class="mb-4">Our house can also be rented entirely.<br>
+                Both apartments can be opened up to be joined.<br>
+                You can use our lawn with pizza oven or our garden for special occasions.<br><br>
+                In our extended barn the living situation is very intimate. You will have to share double beds,
+                lay out mattrasses and climb up to the sleeping opportunities under the roof.
+            </p>
+                {% if user.is_authenticated %}
+                <a href="{% url 'booking' %}" class="btn btn-purple border-dark">Booking</a>
+                {% else %}
+                {% include 'login-needed-modal.html' %}
+                {% endif %}
+                <br><br>
+        </div>
+
+        <div class="col-sm-4">
+            <ul class="list-group list-group-flush rounded-corners">
+                <li class="list-group-item">Workshops</li>
+                <li class="list-group-item">Seminars</li>
+                <li class="list-group-item">Festivities</li>
+                <li class="list-group-item">Friends and family - gatherings</li>
+                <li class="list-group-item">Hiking groups (also fasting hiking groups)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

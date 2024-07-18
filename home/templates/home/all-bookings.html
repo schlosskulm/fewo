@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}All Bookings - Schloßkulm Rental Apartments{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <ul class="list-group-flush rounded-corners">
+        <li class="list-group-item">
+          <div class="styling-messages alert alert-{{ message.tags }}">{{ message }}</div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>
+<br>
+
+{% endfor %}
+{% endif %}
+
+<h1>All Bookings</h1>
+
+{% if user.is_authenticated and user.is_superuser %}
+{% for booking in object_list %}
+
+<div class="card mx-auto card-style">
+    <div class="card-body">
+        <h2 class="card-title">Booking number {{booking.id}}</h2><br>
+        <h6 class="card-subtitle mb-2 text-body-secondary">
+            <b>Booking date:</b><br>{{booking.booking_date}}<br><br>
+            <b>Status:</b> {{booking.booking_status}}<br><br>
+        </h6>
+        <p class="card-text">
+            <b>Name:</b><br>
+            {{booking.first_name}} {{booking.last_name}}<br>
+            <b>Address:</b><br>
+            {{booking.address}}<br>
+            {{booking.zip_code}} {{booking.city}}<br>
+            {{booking.country}}<br><br>
+            <b>Phone:</b> {{booking.phone_number}}<br>
+            <b>E-Mail:</b> {{booking.email}}<br>
+            <b>Nationality:</b> {{booking.nationality}}<br>
+            <b>Passport number:</b> {{booking.passport_number}}<br><br>
+            <b>Arrival:</b> {{booking.arrival_date}}<br>
+            <b>Departure:</b> {{booking.departure_date}}<br>
+            <b>{{booking.booking_status}}:</b> {{booking.booking_item}}<br>
+            <b>Guests:</b> {{booking.amount_guests}}<br>
+            <b>Animals:</b> {{booking.animals}}<br><br>
+            <b>Your message:</b><br>
+            {{booking.message}}<br>
+        </p>
+
+        {% if booking.booking_status == "Requested" %}
+        <!--Confirm Button-->
+        {% include "confirm-modal.html" %}
+        <!--Cancel Button-->
+        {% include "cancel-modal.html" %}
+        <!--Delete Button-->
+        {% include "delete-modal.html" %}
+
+        {% elif booking.booking_status == "Confirmed" %}
+        <!--Cancel Button-->
+        {% include "cancel-modal.html" %}
+        <!--Delete Button-->
+        {% include "delete-modal.html" %}
+
+        {% elif booking.booking_status == "Cancelled" %}
+        <!--Delete Button-->
+        {% include "delete-modal.html" %}
+        {% endif %}
+    </div>
+</div>
+<br>
+
+{% endfor %}
+
+{% else %}
+
+{% include "not-authorized-modal.html" %}
+
+{% endif %}
+
+{% endblock %}

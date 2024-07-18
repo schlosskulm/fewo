@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Booking - Schloßkulm Rental Apartments{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<h1>Booking</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      {{ form.media }} <!-- for Bootstrap Datepicker -->
+      <form id="bookingForm" method="post" action="{% url 'booking' %}" autocomplete="on">
+        {{ form | crispy }}
+        {% csrf_token %}
+        <button id="submitButton" type="submit" class="btn btn-purple border-dark">Submit</button>
+      </form>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>
+
+{% else %}
+
+{% include "not-authorized-modal.html" %}
+
+{% endif %}
+
+{% endblock %}

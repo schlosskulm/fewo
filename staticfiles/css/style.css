@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
+
+/* General Styles */
+
+* {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background-color: #ececeb;
+  background-image: url("../images/background-images/background-image.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+main {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  margin: 0 2rem;
+  font-size: 1.2rem;
+}
+
+h1 {
+  margin: 0.5rem 0 2rem;
+}
+
+.margin-top-bottom {
+  margin: 1rem 0 2rem;
+}
+
+.btn-purple {
+  background-color: #cbc0d3;
+}
+
+.btn-purple:hover,
+.btn-purple:focus {
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+}
+
+.rounded-corners {
+  border-radius: 1.3rem !important;
+}
+
+.styling-messages {
+  border: 0.3rem dashed #ff00b4;
+  font-weight: bold;
+}
+
+.background-grey {
+  background-color: #E5E4E2;
+}
+
+.helptext {
+  visibility: hidden;
+}
+
+.border-pink {
+  border: 0.3rem dashed #ff00b4;
+}
+
+.padding-bottom {
+  padding-bottom: 6rem;
+}
+
+/* Hover CSS for nav bar */
+
+/* Bounce In */
+.hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+.hvr-bounce-in:hover,
+.hvr-bounce-in:focus,
+.hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+/* Radial Out */
+.hvr-radial-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  background: #e1e1e1;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.hvr-radial-out:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #cbc0d3;
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-radial-out:hover,
+.hvr-radial-out:focus,
+.hvr-radial-out:active {
+  color: white;
+}
+
+.hvr-radial-out:hover:before,
+.hvr-radial-out:focus:before,
+.hvr-radial-out:active:before {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+
+/* Nav Bar and Header */
+
+nav {
+  background-color: #E5E4E2;
+  border-bottom: 1px solid #000;
+
+}
+
+nav a {
+  font-weight: 400;
+  color: #fff;
+}
+
+.margin-left-right {
+  margin: 0 1rem;
+}
+
+.nav-margin {
+  margin: 0 1rem;
+}
+
+nav>button {
+  right: 1rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #cbc0d3;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.header-width {
+  width: 100%;
+  height: auto;
+}
+
+/* Footer */
+
+footer {
+  background-color: #E5E4E2;
+  border-top: 1px solid #000;
+  color: black;
+  height: 2.5rem;
+  height: auto;
+}
+
+/* Main Page */
+
+.youtube-responsive {
+  aspect-ratio: 16 / 9;
+  width: 75%;
+}
+
+/* Upper and Lower Apartment Pages */
+
+.accordion {
+  --bs-accordion-active-bg: #cbc0d3;
+  --bs-accordion-border-color: grey;
+}
+
+/* Day Trips Page */
+
+.link-style {
+  text-decoration: none;
+  color: #702963;
+}
+
+.list-background:hover,
+.list-background:focus {
+  background-color: #E8E2E9;
+}
+
+/* CSS Image Gallery */
+
+div.gallery {
+  margin: 5px;
+  border: 2px solid #ccc;
+  float: left;
+  width: 180px;
+  background-color: #E5E4E2;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.gallery-flex {
+  display: flex;
+}
+
+.gallery-center > div {
+  justify-content: center;
+  align-items: center;
+}
+
+/* All Bookings & Your Bookings Page */
+
+.card-style {
+  background-color: #e4dee8;
+}
+
+.btn-card-confirm,
+.btn-card-cancel,
+.btn-card-delete {
+  background-color: #cbc0d3;
+  margin: 0.5rem;
+}
+
+.btn-card-confirm:hover,
+.btn-card-confirm:focus {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-card-cancel:hover,
+.btn-card-cancel:focus {
+  background-color: #ff8800;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-card-delete:hover,
+.btn-card-delete:focus {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+
+/* Contact Section */
+
+.form-width {
+  max-width: 50%;
+}
+
+.resize-none {
+  resize: none;
+}
+
+
+/* Media Queries */
+
+/* Media query: large or landscape phones (576px and up) */
+@media (min-width: 576px) {
+
+  /* All Bookings & Your Bookings Page */
+
+  .card-style {
+    background-color: #e4dee8;
+    width: 25rem;
+  }
+
+  /* Footer */
+
+  .footer-font-size {
+    font-size: 1rem;
+  }
+
+}
+
+/* Media query: tablets and larger (768px and up) */
+@media (min-width: 768px) {
+
+  /* Location Page */
+
+  .width-50 {
+    width: 75%;
+  }
+
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1115px) {
+
+  /* Nav Bar and Header */
+
+  .margin-left-right {
+    margin: 0 0.6rem;
+  }
+
+}
+
+@media (min-width: 992px) {
+  
+  .profile-pictures {
+    transform: scale(0.75);
+  }
+
+}

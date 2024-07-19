@@ -23,8 +23,8 @@ def booking_page(request):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            messages.add_message(request, messages.SUCCESS, """Thank you for
-            your booking request. We will be in touch with you soon.""")
+            messages.add_message(request, messages.SUCCESS, """Danke für
+            deine Buchungsanfrage. Wir melden uns baldmöglichst bei dir zurück.""")
             return redirect("main-page")
     else:
         form = BookingForm()
@@ -90,13 +90,13 @@ def confirm_booking(request, booking_id):
     booking = get_object_or_404(Booking, pk=booking_id)
 
     if not request.user.is_anonymous:
-        booking.booking_status = "Confirmed"
+        booking.booking_status = "Bestätigt"
         booking.save()
-        messages.add_message(request, messages.SUCCESS, f"""Booking no.
-        {booking_id} has been confirmed!""")
+        messages.add_message(request, messages.SUCCESS, f"""Die Buchung
+        Nr. {booking_id} wurde bestätigt!""")
     else:
-        messages.add_message(request, messages.ERROR, """There was an error
-        confirming the booking.""")
+        messages.add_message(request, messages.ERROR, """Es gab leider ein
+        Problem bei deiner Buchung.""")
 
     return HttpResponseRedirect(reverse("all-bookings"))
 
@@ -110,13 +110,13 @@ def cancel_booking(request, booking_id):
     booking = get_object_or_404(Booking, pk=booking_id)
 
     if not request.user.is_anonymous:
-        booking.booking_status = "Cancelled"
+        booking.booking_status = "Storniert"
         booking.save()
-        messages.add_message(request, messages.SUCCESS, f"""Booking no.
-        {booking_id} has been cancelled!""")
+        messages.add_message(request, messages.SUCCESS, f"""Die Buchung
+        Nr. {booking_id} wurde storniert!""")
     else:
-        messages.add_message(request, messages.ERROR, """There was an error
-        cancelling the booking.""")
+        messages.add_message(request, messages.ERROR, """Es gab einen
+        Fehler beim Versuch die Buchung zu stornieren.""")
 
     if not request.user.is_superuser:
         return HttpResponseRedirect(reverse("your-bookings"))
@@ -134,11 +134,11 @@ def delete_booking(request, booking_id):
 
     if not request.user.is_anonymous:
         booking.delete()
-        messages.add_message(request, messages.SUCCESS, f"""Booking no.
-        {booking_id} has been deleted!""")
+        messages.add_message(request, messages.SUCCESS, f"""Die Buchung
+        Nr. {booking_id} wurde gelöscht!""")
     else:
-        messages.add_message(request, messages.ERROR, """There was an error
-        deleting the booking.""")
+        messages.add_message(request, messages.ERROR, """Es gab einen
+        Fehler beim Versuch, die Buchung zu löschen.""")
 
     return HttpResponseRedirect(reverse("all-bookings"))
 
@@ -153,12 +153,12 @@ def contact_page(request):
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
             contact_form.save()
-            messages.add_message(request, messages.SUCCESS, """Thank you for
-            your message. We will be in touch with you soon.""")
+            messages.add_message(request, messages.SUCCESS, """Danke für deine
+            Nachricht. Wir melden uns baldmöglichst bei dir zurück.""")
             return redirect("main-page")
         else:
-            messages.add_message(request, messages.ERROR, """There was an error
-            sending your message.""")
+            messages.add_message(request, messages.ERROR, """Es gab einen
+            Fehler beim Versuch, die Nachricht abzuschicken.""")
     else:
         contact_form = ContactForm()
 

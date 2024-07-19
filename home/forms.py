@@ -9,11 +9,30 @@ import datetime
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['first_name', 'last_name', 'birth_date', 'email',
+        fields = ['first_name','last_name', 'birth_date', 'email',
                   'phone_number', 'address', 'zip_code', 'city', 'country',
                   'booking_item', 'arrival_date', 'departure_date',
                   'amount_guests', 'nationality', 'passport_number', 'animals',
                   'message']
+        labels = {
+            'first_name': 'Vorname',
+            'last_name': 'Nachname',
+            'birth_date': 'Geburtsdatum',
+            'email': 'E-Mail',
+            'phone_number': 'Telefonnummer',
+            'address': 'Adresse',
+            'zip_code': 'Postleitzahl',
+            'city': 'Stadt',
+            'country': 'Land',
+            'booking_item': 'Buchungsgegenstand',
+            'arrival_date': 'Anreisedatum',
+            'departure_date': 'Abreisedatum',
+            'amount_guests': 'Anzahl der Gäst*innen',
+            'nationality': 'Nationalität',
+            'passport_number': 'Passnummer',
+            'animals': 'Tiere',
+            'message': 'Deine Nachricht'
+        }    
         exclude = ['booking_date', 'booking_status']
         widgets = {
             "birth_date": DatePickerInput(options={"format": "DD/MM/YYYY"}),

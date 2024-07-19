@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Get booking id from dataset of button clicked
       let bookingId = target.dataset.booking_id;
       // Insert inner text to cancelled booking button
-      target.innerText = "Confirmed!";
+      target.innerText = "Bestätigt!";
       // Read current URL
       let currentUrl = window.location.href;
       // Remove unused part of URL
@@ -37,7 +37,7 @@ for (var b = 0; b < cancelButtons.length; b++) {
   event.preventDefault();
   const target = event.target;
   let bookingId = target.dataset.booking_id;
-  target.innerText = "Cancelled!";
+  target.innerText = "Storniert!";
   let currentUrl = window.location.href;
   var newUrl = '';
   if (currentUrl.includes('your-bookings')) {
@@ -59,7 +59,7 @@ for (var c = 0; c < deleteButtons.length; c++) {
   event.preventDefault();
   const target = event.target;
   let bookingId = target.dataset.booking_id;
-  target.innerText = "Deleted!";
+  target.innerText = "Gelöscht!";
   let currentUrl = window.location.href;
   var newUrl = '';
   if (currentUrl.includes('your-bookings')) {

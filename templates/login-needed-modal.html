@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-purple border-dark" data-bs-toggle="modal" data-bs-target="#loginNeededModal">
-    Book With Us
+    Buchung
   </button>
   
   <!-- Modal -->
@@ -12,10 +12,10 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          You need to be logged in to make a booking.
+          Du musst eingeloggt sein, um auf unserer Homepage zu buchen. 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-purple border-dark" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-purple border-dark" data-bs-dismiss="modal">Fenster schließen</button>
           <a href="{% url 'account_login' %}?next={% url 'booking' %}" class="btn btn-purple border-dark">OK</a>
         </div>
       </div>

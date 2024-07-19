@@ -29,33 +29,32 @@
 
 <div class="row">
   <div class="col-12">
-    <h1>Welcome to Schloßkulm</h1>
-    <p>Dear guests,
-      <br><br>welcome to our adobe house nearby the forest. Wild flowers, birds chirping, the wind in the trees, a
-      crackling fireplace and nice hosts who accompany you during your time in Schloßkulm.
-      Many people and generations have come together here to wind down and rest. People who were looking for new ways of
-      living, people from the village, hikers and travellers have
-      shaped this place over the years.<br><br>Now we - Anna Barth und Friedel Barth - have taken on the responsibility
-      to shape this village further, paying attention to its history. For us this means to invite others in the first
-      place.
-      To invite you to spend a nice time here! As guests you are contributing to this place and to a lively atmosphere.
-      If you like you can get involved... do you need a physical workout chopping wood? A calm stroll path in nature
-      recommended by us?
-      New inspiration because you finally have the time and space to reflect? A safe space to try out unusual things?
-      Feel free to get in touch with us! We are happy for everyone who takes care of themselves and their recreation
-      here in Schloßkulm.
+    <h1>Willkommen in Schloßkulm</h1>
+    <p>Liebe Gäste,
+      <br><br>herzlich willkommen in unserem urigen Lehmhaus am Wald. Wilde Blumen, Vogelgesang, das Rauschen der Bäume,
+      das Knacken des Ofens und nette Hosts begleiten euch durch eure Schloßkulmzeit. Hier sind schon viele Menschen und
+      Generationen zusammen gekommen und konnten Energie und Freude tanken.
+      Menschen, die nach neuen Lebensformen suchten, Menschen aus dem Dorf, Wandernde und Reisende haben den Ort seit 50
+      Jahren über den Systemwechsel hinweg mitgedacht und mitgestaltet.<br><br>Jetzt haben wir (Anna Barth und Friedel
+      Barth) die Verantwortung übernommen, diesen Ort weiter zu leben und mit Sinn für dessen Geschichte zu pflegen. Für
+      uns bedeutet das vor allem Einzuladen. Euch einzuladen hier eine gute Zeit zu verbringen! Als Gäste tragt ihr
+      wesentlich zur Erhaltung des Ortes und seiner Atmosphäre bei.
+      Wer mag, kann sich einbringen, mitmachen… braucht ihr eine körperlich entlastende Holzaktion? Einen ruhigen
+      Spaziergang auf Empfehlung? Neuen Input, weil ihr endlich mal dazu kommt, zu reflektieren? Einen geschützten Raum,
+      um Ungewohntes auszuprobieren? Sprecht uns gern an!
+      Und natürlich freuen wir uns über jede:n, der:die ausgiebig für die eigene Erholung sorgt.
       <br><br>
-      We are looking forward to meet you!
+      Wir freuen uns auf euch!
       <br><br>
       Friedel, Anna & Jonathan
       <br><br>
-      <a href="{% url 'upper-apartment' %}" class="btn btn-purple border-dark">Upper Apartment Details</a>
+      <a href="{% url 'upper-apartment' %}" class="btn btn-purple border-dark">Details Obere Ferienwohnung</a>
       <br><br>
-      <a href="{% url 'lower-apartment' %}" class="btn btn-purple border-dark">Lower Apartment Details</a>
+      <a href="{% url 'lower-apartment' %}" class="btn btn-purple border-dark">Details Untere Ferienwohnung</a>
       <br><br>
-      <a href="{% url 'contact' %}" class="btn btn-purple border-dark">Get In Touch</a>
+      <a href="{% url 'contact' %}" class="btn btn-purple border-dark m-2">Kontakt</a>
       {% if user.is_authenticated %}
-      <a href="{% url 'booking' %}" class="btn btn-purple border-dark">Book With Us</a>
+      <a href="{% url 'booking' %}" class="btn btn-purple border-dark m-2">Buchung</a>
     </p>
       {% else %}
       {% include 'login-needed-modal.html' %}

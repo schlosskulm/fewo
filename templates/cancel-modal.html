@@ -2,7 +2,7 @@
  
 <!-- Button that triggers modal -->
 <button type="button" class="btn btn-card-cancel border-dark" data-bs-toggle="modal" data-bs-target="#{{ booking.id }}-cancelModal">
-    Cancel booking
+    Buchung stornieren
   </button>
   
   <!-- Modal -->
@@ -10,16 +10,16 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="{{ booking.id }}-cancelModalLabel">Booking cancellation</h1>
+          <h1 class="modal-title fs-5" id="{{ booking.id }}-cancelModalLabel">Stornierung der Buchung</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Are you sure you want to cancel your booking?<br>
-          This action cannot be undone.
+          Bist du dir sicher, dass du die Buchung stornieren möchtest?<br>
+          Diese Handlung kann nicht rückgängig gemacht werden.
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-card-confirm border-dark" data-bs-dismiss="modal">Close</button>
-          <button data-booking_id="{{ booking.id }}" class="btn btn-card-cancel border-dark cancel-button">Cancel booking</button>
+          <button type="button" class="btn btn-card-confirm border-dark" data-bs-dismiss="modal">Fenster schließen</button>
+          <button data-booking_id="{{ booking.id }}" class="btn btn-card-cancel border-dark cancel-button">Buchung stornieren</button>
         </div>
       </div>
     </div>

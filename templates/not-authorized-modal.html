@@ -1,13 +1,13 @@
 <!-- Modal -->
-<div class="modal fade" id="notAuthorizedModal" tabindex="-1" aria-labelledby="notAuthorizedModalLabel" aria-hidden="true">
+<div class="modal fade" id="notAuthorizedModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="notAuthorizedModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 text-danger" id="notAuthorizedModalLabel">Access denied</h1>
+                <h1 class="modal-title fs-5 text-danger" id="notAuthorizedModalLabel">Zugriff verweigert</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                You are not authorized to access this page!
+                Du hast nicht die Berechtigung, auf diese Seite zuzugreifen!
             </div>
             <div class="modal-footer">
                 <a href="{% url 'main-page' %}">

@@ -2,7 +2,7 @@
  
 <!-- Button that triggers modal -->
 <button type="button" class="btn btn-card-delete border-dark" data-bs-toggle="modal" data-bs-target="#{{ booking.id }}-deleteModal">
-    Delete booking
+    Buchung löschen
   </button>
   
   <!-- Modal -->
@@ -10,16 +10,16 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="{{ booking.id }}-deleteModalLabel">Booking deletion</h1>
+          <h1 class="modal-title fs-5" id="{{ booking.id }}-deleteModalLabel">Löschen der Buchung</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Are you sure you want to delete your booking?<br>
-          This action cannot be undone.
+          Bist du dir sicher, dass du die Buchung löschen möchtest?<br>
+          Diese Handlung kann nicht rückgängig gemacht werden.
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-card-confirm border-dark" data-bs-dismiss="modal">Close</button>
-          <button data-booking_id="{{ booking.id }}" class="btn btn-card-delete border-dark delete-button">Delete booking</button>
+          <button type="button" class="btn btn-card-confirm border-dark" data-bs-dismiss="modal">Fenster schließen</button>
+          <button data-booking_id="{{ booking.id }}" class="btn btn-card-delete border-dark delete-button">Buchung löschen</button>
         </div>
       </div>
     </div>

@@ -5,13 +5,13 @@
 {% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description"
-    content="Rent your holiday apartment in Schloßkulm, Thuringia and enjoy the quietness of the German countryside.">
+    content="Miete deine Ferienwohnung in Schloßkulm, Thüringen und genieße eine Auszeit inmitten der Stille der Natur.">
   <meta name="author" content="Rafaela Wetzel">
   <title>{% block title %}{% endblock %}</title>
   <!-- Favicon -->
@@ -37,7 +37,7 @@
 <body class="padding-bottom">
   <header>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-lg px-2">
-      <a class="navbar-brand nav-margin" href="{% url 'main-page' %}">Schloßkulm Rental Apartments</a>
+      <a class="navbar-brand nav-margin" href="{% url 'main-page' %}">Schloßkulm Ferienwohnungen</a>
       <button class="navbar-toggler border-0 hvr-radial-out" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -48,13 +48,13 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink1"
               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
-              House
+              Haus
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="{% url 'upper-apartment' %}" aria-current="page">Upper Apartment</a>
-              <a class="dropdown-item" href="{% url 'lower-apartment' %}" aria-current="page">Lower Apartment</a>
-              <a class="dropdown-item" href="{% url 'house' %}" aria-current="page">Rent House</a>
-              <a class="dropdown-item" href="{% url 'house-rules' %}" aria-current="page">House Rules</a>
+              <a class="dropdown-item" href="{% url 'upper-apartment' %}" aria-current="page">Obere Ferienwohnung</a>
+              <a class="dropdown-item" href="{% url 'lower-apartment' %}" aria-current="page">Untere Ferienwohnung</a>
+              <a class="dropdown-item" href="{% url 'house' %}" aria-current="page">Haus mieten</a>
+              <a class="dropdown-item" href="{% url 'house-rules' %}" aria-current="page">Hausregeln</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -63,61 +63,60 @@
               Schloßkulm
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-              <a class="dropdown-item" href="{% url 'day-trips' %}" aria-current="page">Day Trips</a>
-              <a class="dropdown-item" href="{% url 'gallery' %}" aria-current="page">Gallery</a>
-              <a class="dropdown-item" href="{% url 'location' %}" aria-current="page">Location</a>
+              <a class="dropdown-item" href="{% url 'day-trips' %}" aria-current="page">Tagesausflüge</a>
+              <a class="dropdown-item" href="{% url 'gallery' %}" aria-current="page">Galerie</a>
+              <a class="dropdown-item" href="{% url 'location' %}" aria-current="page">Anfahrt</a>
             </div>
           </li>
           {% if user.is_authenticated and not user.is_superuser and booking_exists %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink3"
               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
-              Booking
+              Buchung
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
-              <a class="dropdown-item" href="{% url 'booking' %}" aria-current="page">Booking Form</a>
-              <a class="dropdown-item" href="{% url 'your-bookings' %}" aria-current="page">Your Bookings</a>
+              <a class="dropdown-item" href="{% url 'booking' %}" aria-current="page">Buchungsformular</a>
+              <a class="dropdown-item" href="{% url 'your-bookings' %}" aria-current="page">Deine Buchungen</a>
             </div>
           </li>
           {% elif user.is_authenticated and user.is_superuser %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink3"
               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
-              Booking
+              Buchung
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
-              <a class="dropdown-item" href="{% url 'booking' %}" aria-current="page">Booking Form</a>
-              <a class="dropdown-item" href="{% url 'your-bookings' %}" aria-current="page">Your Bookings</a>
-              <a class="dropdown-item" href="{% url 'all-bookings' %}" aria-current="page">All Bookings</a>
+              <a class="dropdown-item" href="{% url 'booking' %}" aria-current="page">Buchungsformular</a>
+              <a class="dropdown-item" href="{% url 'your-bookings' %}" aria-current="page">Deine Buchungen</a>
+              <a class="dropdown-item" href="{% url 'all-bookings' %}" aria-current="page">Alle Buchungen</a>
             </div>
           </li>
           {% else %}
           <li class="nav-item">
             <a class="nav-link hvr-bounce-in margin-left-right"
-              href="{% url 'account_login' %}?next={% url 'booking' %}" aria-current="page">Booking</a>
+              href="{% url 'account_login' %}?next={% url 'booking' %}" aria-current="page">Buchung</a>
           </li>
           {% endif %}
           <li class="nav-item">
-            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'about-us' %}" aria-current="page">About
-              Us</a>
+            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'about-us' %}" aria-current="page">Über Uns</a>
           </li>
           <li class="nav-item">
             <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'contact' %}"
-              aria-current="page">Contact</a>
+              aria-current="page">Kontakt</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link hvr-bounce-in margin-left-right {% if request.path == logout.url %}active{% endif %}"
-              aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+              aria-current="page" href="{% url 'account_logout' %}">Ausloggen</a>
           </li>
           {% else %}
           <li class="nav-item">
             <a class="nav-link hvr-bounce-in margin-left-right {% if request.path == signup_url %}active{% endif %}"
-              aria-current="page" href="{% url 'account_signup' %}">Register</a>
+              aria-current="page" href="{% url 'account_signup' %}">Anmelden</a>
           </li>
           <li class="nav-item">
             <a class="nav-link hvr-bounce-in margin-left-right {% if request.path == login_url %}active{% endif %}"
-              aria-current="page" href="{% url 'account_login' %}">Login</a>
+              aria-current="page" href="{% url 'account_login' %}">Einloggen</a>
           </li>
           {% endif %}
         </ul>
@@ -137,14 +136,11 @@
     <div class="container">
       <div class="row">
         {% if user.is_authenticated %}
-        <div class="col-sm-3 footer-font-size">
-          Logged in as: {{ user.username }}
+        <div class="col-sm-6 footer-font-size">
+          Eingeloggt als: {{ user.username }}
         </div>
         {% endif %}
-        <div class="col-sm-6 text-center footer-font-size">
-          This project is for purposes of education only.
-        </div>
-        <div class="col-sm-3 d-flex justify-content-end footer-font-size">
+        <div class="col-sm-6 d-flex justify-content-end footer-font-size">
           © 2024 Rafaela Wetzel
         </div>
       </div>

@@ -14,12 +14,12 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-8">
-      <p>If you should have any questions about the apartments, the region
-        or need any other information you are most welcome to contact us!</p>
+      <p>Du hast Fragen zur Unterkunft, Gegend oder brauchst Informationen zu einem anderen Thema?<br>
+        Nimm gerne mit uns Kontakt auf!</p>
       <form id="contactForm" method="post" action="{% url 'contact' %}" autocomplete="on">
         {{ contact_form | crispy }}
         {% csrf_token %}
-        <button id="submitButton" type="submit" class="btn btn-purple border-dark">Submit</button>
+        <button id="submitButton" type="submit" class="btn btn-purple border-dark">Abschicken</button>
       </form>
     </div>
     <div class="col-sm-2">

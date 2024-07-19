@@ -48,13 +48,13 @@
       <br><br>
       Friedel, Anna & Jonathan
       <br><br>
-      <a href="{% url 'upper-apartment' %}" class="btn btn-purple border-dark">Details Obere Ferienwohnung</a>
+      <a href="{% url 'ferienwohnung-oben' %}" class="btn btn-purple border-dark">Obere Ferienwohnung</a>
       <br><br>
-      <a href="{% url 'lower-apartment' %}" class="btn btn-purple border-dark">Details Untere Ferienwohnung</a>
+      <a href="{% url 'ferienwohnung-unten' %}" class="btn btn-purple border-dark">Untere Ferienwohnung</a>
       <br><br>
-      <a href="{% url 'contact' %}" class="btn btn-purple border-dark m-2">Kontakt</a>
+      <a href="{% url 'kontakt' %}" class="btn btn-purple border-dark m-2">Kontakt</a>
       {% if user.is_authenticated %}
-      <a href="{% url 'booking' %}" class="btn btn-purple border-dark m-2">Buchung</a>
+      <a href="{% url 'buchung' %}" class="btn btn-purple border-dark m-2">Buchung</a>
     </p>
       {% else %}
       {% include 'login-needed-modal.html' %}

@@ -12,7 +12,7 @@ from .forms import BookingForm, ContactForm
 # Booking Form
 
 
-def booking_page(request):
+def buchung_seite(request):
     """
     Posts entered booking form data to database
     and displays confirmation message
@@ -31,7 +31,7 @@ def booking_page(request):
 
     return render(
         request,
-        "home/booking.html",
+        "home/buchung.html",
         {
             "form": form
         },
@@ -63,7 +63,7 @@ class BookingList(generic.ListView):
     """
 
     model = Booking
-    template_name = "home/your-bookings.html"
+    template_name = "home/deine-buchungen.html"
 
     def get_queryset(self):
         if self.request.user.is_authenticated:
@@ -78,7 +78,7 @@ class AllBookingsList(generic.ListView):
 
     model = Booking
     queryset = Booking.objects.all()
-    template_name = "home/all-bookings.html"
+    template_name = "home/alle-buchungen.html"
 
 
 # Confirm Booking View
@@ -98,7 +98,7 @@ def confirm_booking(request, booking_id):
         messages.add_message(request, messages.ERROR, """Es gab leider ein
         Problem bei deiner Buchung.""")
 
-    return HttpResponseRedirect(reverse("all-bookings"))
+    return HttpResponseRedirect(reverse("alle-buchungen"))
 
 
 # Cancel Booking View
@@ -119,9 +119,9 @@ def cancel_booking(request, booking_id):
         Fehler beim Versuch die Buchung zu stornieren.""")
 
     if not request.user.is_superuser:
-        return HttpResponseRedirect(reverse("your-bookings"))
+        return HttpResponseRedirect(reverse("deine-buchungen"))
     elif request.user.is_superuser:
-        return HttpResponseRedirect(reverse("all-bookings"))
+        return HttpResponseRedirect(reverse("alle-buchungen"))
 
 
 # Delete Booking View
@@ -140,12 +140,12 @@ def delete_booking(request, booking_id):
         messages.add_message(request, messages.ERROR, """Es gab einen
         Fehler beim Versuch, die Buchung zu löschen.""")
 
-    return HttpResponseRedirect(reverse("all-bookings"))
+    return HttpResponseRedirect(reverse("alle-buchungen"))
 
 
 # Contact View
 
-def contact_page(request):
+def kontakt_seite(request):
     """
     Posts guest messages made via contact form to database
     """
@@ -164,7 +164,7 @@ def contact_page(request):
 
     return render(
         request,
-        "home/contact.html",
+        "home/kontakt.html",
         {
             "contact_form": contact_form
         },
@@ -173,45 +173,45 @@ def contact_page(request):
 
 # Template Views - Render HTML pages
 
-def all_bookings_page(request):
-    return render(request, "home/all-bookings.html")
+def alle_buchungen_seite(request):
+    return render(request, "home/alle-buchungen.html")
 
 
-def location_page(request):
-    return render(request, "home/location.html")
+def anfahrt_seite(request):
+    return render(request, "home/anfahrt.html")
 
 
-def upper_apartment_page(request):
-    return render(request, "home/upper-apartment.html")
+def ferienwohnung_oben_seite(request):
+    return render(request, "home/ferienwohnung-oben.html")
 
 
-def lower_apartment_page(request):
-    return render(request, "home/lower-apartment.html")
+def ferienwohnung_unten_seite(request):
+    return render(request, "home/ferienwohnung-unten.html")
 
 
-def gallery_page(request):
-    return render(request, "home/gallery.html")
+def galerie_seite(request):
+    return render(request, "home/galerie.html")
 
 
-def house_page(request):
-    return render(request, "home/house.html")
+def haus_seite(request):
+    return render(request, "home/haus-mieten.html")
 
 
-def house_rules_page(request):
-    return render(request, "home/house-rules.html")
+def hausregeln_seite(request):
+    return render(request, "home/hausregeln.html")
 
 
-def main_page(request):
+def start_seite(request):
     return render(request, "home/index.html")
 
 
-def day_trips_page(request):
-    return render(request, "home/day-trips.html")
+def tagesausflug_seite(request):
+    return render(request, "home/tagesausflug.html")
 
 
-def about_us_page(request):
-    return render(request, "home/about-us.html")
+def ueber_uns_seite(request):
+    return render(request, "home/ueber-uns.html")
 
 
-def your_bookings_page(request):
-    return render(request, "home/your-bookings.html")
+def deine_buchungen_seite(request):
+    return render(request, "home/deine-buchungen.html")

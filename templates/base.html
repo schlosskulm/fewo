@@ -37,7 +37,7 @@
 <body class="padding-bottom">
   <header>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-lg px-2">
-      <a class="navbar-brand nav-margin" href="{% url 'main-page' %}">Schloßkulm Ferienwohnungen</a>
+      <a class="navbar-brand nav-margin" href="{% url 'start-seite' %}">Schloßkulm Ferienwohnungen</a>
       <button class="navbar-toggler border-0 hvr-radial-out" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -51,10 +51,10 @@
               Haus
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="{% url 'upper-apartment' %}" aria-current="page">Obere Ferienwohnung</a>
-              <a class="dropdown-item" href="{% url 'lower-apartment' %}" aria-current="page">Untere Ferienwohnung</a>
-              <a class="dropdown-item" href="{% url 'house' %}" aria-current="page">Haus mieten</a>
-              <a class="dropdown-item" href="{% url 'house-rules' %}" aria-current="page">Hausregeln</a>
+              <a class="dropdown-item" href="{% url 'ferienwohnung-oben' %}" aria-current="page">Obere Ferienwohnung</a>
+              <a class="dropdown-item" href="{% url 'ferienwohnung-unten' %}" aria-current="page">Untere Ferienwohnung</a>
+              <a class="dropdown-item" href="{% url 'haus-mieten' %}" aria-current="page">Haus mieten</a>
+              <a class="dropdown-item" href="{% url 'hausregeln' %}" aria-current="page">Hausregeln</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -63,9 +63,9 @@
               Schloßkulm
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-              <a class="dropdown-item" href="{% url 'day-trips' %}" aria-current="page">Tagesausflüge</a>
-              <a class="dropdown-item" href="{% url 'gallery' %}" aria-current="page">Galerie</a>
-              <a class="dropdown-item" href="{% url 'location' %}" aria-current="page">Anfahrt</a>
+              <a class="dropdown-item" href="{% url 'tagesausflug' %}" aria-current="page">Tagesausflüge</a>
+              <a class="dropdown-item" href="{% url 'galerie' %}" aria-current="page">Galerie</a>
+              <a class="dropdown-item" href="{% url 'anfahrt' %}" aria-current="page">Anfahrt</a>
             </div>
           </li>
           {% if user.is_authenticated and not user.is_superuser and booking_exists %}
@@ -75,8 +75,8 @@
               Buchung
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
-              <a class="dropdown-item" href="{% url 'booking' %}" aria-current="page">Buchungsformular</a>
-              <a class="dropdown-item" href="{% url 'your-bookings' %}" aria-current="page">Deine Buchungen</a>
+              <a class="dropdown-item" href="{% url 'buchung' %}" aria-current="page">Buchungsformular</a>
+              <a class="dropdown-item" href="{% url 'deine-buchungen' %}" aria-current="page">Deine Buchungen</a>
             </div>
           </li>
           {% elif user.is_authenticated and user.is_superuser %}
@@ -86,22 +86,22 @@
               Buchung
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
-              <a class="dropdown-item" href="{% url 'booking' %}" aria-current="page">Buchungsformular</a>
-              <a class="dropdown-item" href="{% url 'your-bookings' %}" aria-current="page">Deine Buchungen</a>
-              <a class="dropdown-item" href="{% url 'all-bookings' %}" aria-current="page">Alle Buchungen</a>
+              <a class="dropdown-item" href="{% url 'buchung' %}" aria-current="page">Buchungsformular</a>
+              <a class="dropdown-item" href="{% url 'deine-buchungen' %}" aria-current="page">Deine Buchungen</a>
+              <a class="dropdown-item" href="{% url 'alle-buchungen' %}" aria-current="page">Alle Buchungen</a>
             </div>
           </li>
           {% else %}
           <li class="nav-item">
             <a class="nav-link hvr-bounce-in margin-left-right"
-              href="{% url 'account_login' %}?next={% url 'booking' %}" aria-current="page">Buchung</a>
+              href="{% url 'account_login' %}?next={% url 'buchung' %}" aria-current="page">Buchung</a>
           </li>
           {% endif %}
           <li class="nav-item">
-            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'about-us' %}" aria-current="page">Über Uns</a>
+            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'ueber-uns' %}" aria-current="page">Über Uns</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'contact' %}"
+            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'kontakt' %}"
               aria-current="page">Kontakt</a>
           </li>
           {% if user.is_authenticated %}

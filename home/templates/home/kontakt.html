@@ -7,7 +7,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-<h1>Contact</h1>
+<h1>Kontakt</h1>
 
 <div class="container">
   <div class="row">
@@ -16,7 +16,7 @@
     <div class="col-sm-8">
       <p>Du hast Fragen zur Unterkunft, Gegend oder brauchst Informationen zu einem anderen Thema?<br>
         Nimm gerne mit uns Kontakt auf!</p>
-      <form id="contactForm" method="post" action="{% url 'contact' %}" autocomplete="on">
+      <form id="contactForm" method="post" action="{% url 'kontakt' %}" autocomplete="on">
         {{ contact_form | crispy }}
         {% csrf_token %}
         <button id="submitButton" type="submit" class="btn btn-purple border-dark">Abschicken</button>

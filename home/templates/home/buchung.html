@@ -15,7 +15,7 @@
     </div>
     <div class="col-sm-8">
       {{ form.media }} <!-- for Bootstrap Datepicker -->
-      <form id="bookingForm" method="post" action="{% url 'booking' %}" autocomplete="on">
+      <form id="bookingForm" method="post" action="{% url 'buchung' %}" autocomplete="on">
         {{ form | crispy }}
         {% csrf_token %}
         <button id="submitButton" type="submit" class="btn btn-purple border-dark">Abschicken</button>

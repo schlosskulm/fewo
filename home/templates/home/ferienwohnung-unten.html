@@ -262,7 +262,7 @@
                                     Zusätzlich 50€ für die Endreinigung<br><br>
                                 </p>
                                     {% if user.is_authenticated %}
-                                    <a href="{% url 'booking' %}" class="btn btn-purple border-dark">Buchung</a>
+                                    <a href="{% url 'buchung' %}" class="btn btn-purple border-dark">Buchung</a>
                                     {% else %}
                                     {% include 'login-needed-modal.html' %}
                                     {% endif %}

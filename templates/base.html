@@ -58,17 +58,6 @@
               <a class="dropdown-item" href="{% url 'hausregeln' %}" aria-current="page">Hausregeln</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink2"
-              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
-              Schloßkulm
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-              <a class="dropdown-item" href="{% url 'tagesausflug' %}" aria-current="page">Tagesausflüge</a>
-              <a class="dropdown-item" href="{% url 'galerie' %}" aria-current="page">Galerie</a>
-              <a class="dropdown-item" href="{% url 'anfahrt' %}" aria-current="page">Anfahrt</a>
-            </div>
-          </li>
           {% if user.is_authenticated and not user.is_superuser and booking_exists %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink3"
@@ -98,6 +87,19 @@
               href="{% url 'account_login' %}?next={% url 'buchung' %}" aria-current="page">Buchung</a>
           </li>
           {% endif %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink2"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
+              Schloßkulm
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+              <a class="dropdown-item" href="{% url 'tagesausflug' %}" aria-current="page">Tagesausflüge</a>
+              <a class="dropdown-item" href="{% url 'galerie' %}" aria-current="page">Galerie</a>
+              <a class="dropdown-item" href="{% url 'anfahrt' %}" aria-current="page">Anfahrt</a>
+              <a class="dropdown-item" href="{% url 'initiativen' %}" aria-current="page">Initiativen</a>
+              <a class="dropdown-item" href="{% url 'projektarchiv' %}" aria-current="page">Projektarchiv</a>
+            </div>
+          </li>
           <li class="nav-item">
             <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'ueber-uns' %}" aria-current="page">Über
               Uns</a>
@@ -105,6 +107,17 @@
           <li class="nav-item">
             <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'kontakt' %}"
               aria-current="page">Kontakt</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle hvr-bounce-in margin-left-right" href="#" id="navbarDropdownMenuLink5"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
+              Rechtliches
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink5">
+              <a class="dropdown-item" href="{% url 'agb' %}" aria-current="page">AGB</a>
+              <a class="dropdown-item" href="{% url 'impressum' %}" aria-current="page">Impressum</a>
+              <a class="dropdown-item" href="{% url 'datenschutz' %}" aria-current="page">Datenschutz</a>
+            </div>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">

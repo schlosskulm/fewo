@@ -170,12 +170,20 @@ def kontakt_seite(request):
 
 # Template Views - Render HTML pages
 
+def agb_seite(request):
+    return render(request, "home/agb.html")
+
+
 def alle_buchungen_seite(request):
     return render(request, "home/alle-buchungen.html")
 
 
 def anfahrt_seite(request):
     return render(request, "home/anfahrt.html")
+
+
+def datenschutz_seite(request):
+    return render(request, "home/datenschutz.html")
 
 
 def ferienwohnung_oben_seite(request):
@@ -196,6 +204,18 @@ def haus_seite(request):
 
 def hausregeln_seite(request):
     return render(request, "home/hausregeln.html")
+
+
+def impressum_seite(request):
+    return render(request, "home/impressum.html")
+
+
+def initiativen_seite(request):
+    return render(request, "home/initiativen.html")
+
+
+def projektarchiv_seite(request):
+    return render(request, "home/projektarchiv.html")
 
 
 def start_seite(request):

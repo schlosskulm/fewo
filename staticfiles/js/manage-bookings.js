@@ -42,8 +42,10 @@ for (var b = 0; b < cancelButtons.length; b++) {
   var newUrl = '';
   if (currentUrl.includes('deine-buchungen')) {
     newUrl = currentUrl.replace('/deine-buchungen/', '');
+    console.log("The current URL incudes deine-buchungen")
   } else {
     newUrl = currentUrl.replace('/alle-buchungen/', '');
+    console.log("The current URL incudes alle-buchungen")
   }
   window.location.href = `${newUrl}/cancel_booking/${bookingId}`;
 });

@@ -1,8 +1,6 @@
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.utils.decorators import method_decorator
 from django.views import generic
 import requests
 
@@ -10,7 +8,6 @@ from .models import Booking, Contact
 from .forms import BookingForm, ContactForm
 
 # Booking Form
-
 
 def buchung_seite(request):
     """
@@ -25,7 +22,7 @@ def buchung_seite(request):
             form.save()
             messages.add_message(request, messages.SUCCESS, """Danke für
             deine Buchungsanfrage. Wir melden uns baldmöglichst bei dir zurück.""")
-            return redirect("main-page")
+            return redirect("start-seite")
     else:
         form = BookingForm()
 
@@ -92,7 +89,7 @@ def confirm_booking(request, booking_id):
     if not request.user.is_anonymous:
         booking.booking_status = "Bestätigt"
         booking.save()
-        messages.add_message(request, messages.SUCCESS, f"""Die Buchung
+        messages.add_message(request, messages.SUCCESS, f"""Buchung
         Nr. {booking_id} wurde bestätigt!""")
     else:
         messages.add_message(request, messages.ERROR, """Es gab leider ein
@@ -112,7 +109,7 @@ def cancel_booking(request, booking_id):
     if not request.user.is_anonymous:
         booking.booking_status = "Storniert"
         booking.save()
-        messages.add_message(request, messages.SUCCESS, f"""Die Buchung
+        messages.add_message(request, messages.SUCCESS, f"""Buchung
         Nr. {booking_id} wurde storniert!""")
     else:
         messages.add_message(request, messages.ERROR, """Es gab einen
@@ -134,7 +131,7 @@ def delete_booking(request, booking_id):
 
     if not request.user.is_anonymous:
         booking.delete()
-        messages.add_message(request, messages.SUCCESS, f"""Die Buchung
+        messages.add_message(request, messages.SUCCESS, f"""Buchung
         Nr. {booking_id} wurde gelöscht!""")
     else:
         messages.add_message(request, messages.ERROR, """Es gab einen
@@ -155,7 +152,7 @@ def kontakt_seite(request):
             contact_form.save()
             messages.add_message(request, messages.SUCCESS, """Danke für deine
             Nachricht. Wir melden uns baldmöglichst bei dir zurück.""")
-            return redirect("main-page")
+            return redirect("start-seite")
         else:
             messages.add_message(request, messages.ERROR, """Es gab einen
             Fehler beim Versuch, die Nachricht abzuschicken.""")

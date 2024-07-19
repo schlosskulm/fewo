@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Read current URL
       let currentUrl = window.location.href;
       // Remove unused part of URL
-      let newUrl = currentUrl.replace('/all-bookings/', '');
+      let newUrl = currentUrl.replace('/alle-buchungen/', '');
       // Redirect to confirm booking URL with booking number as argument
       window.location.href = `${newUrl}/confirm_booking/${bookingId}`;
     });
@@ -40,10 +40,10 @@ for (var b = 0; b < cancelButtons.length; b++) {
   target.innerText = "Storniert!";
   let currentUrl = window.location.href;
   var newUrl = '';
-  if (currentUrl.includes('your-bookings')) {
-    newUrl = currentUrl.replace('/your-bookings/', '');
+  if (currentUrl.includes('deine-buchungen')) {
+    newUrl = currentUrl.replace('/deine-buchungen/', '');
   } else {
-    newUrl = currentUrl.replace('/all-bookings/', '');
+    newUrl = currentUrl.replace('/alle-buchungen/', '');
   }
   window.location.href = `${newUrl}/cancel_booking/${bookingId}`;
 });
@@ -61,12 +61,7 @@ for (var c = 0; c < deleteButtons.length; c++) {
   let bookingId = target.dataset.booking_id;
   target.innerText = "Gelöscht!";
   let currentUrl = window.location.href;
-  var newUrl = '';
-  if (currentUrl.includes('your-bookings')) {
-    newUrl = currentUrl.replace('/your-bookings/', '');
-  } else {
-    newUrl = currentUrl.replace('/all-bookings/', '');
-  }
+  let newUrl = currentUrl.replace('/alle-buchungen/', '');
   window.location.href = `${newUrl}/delete_booking/${bookingId}`;
 });
 }

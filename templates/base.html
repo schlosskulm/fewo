@@ -52,7 +52,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
               <a class="dropdown-item" href="{% url 'ferienwohnung-oben' %}" aria-current="page">Obere Ferienwohnung</a>
-              <a class="dropdown-item" href="{% url 'ferienwohnung-unten' %}" aria-current="page">Untere Ferienwohnung</a>
+              <a class="dropdown-item" href="{% url 'ferienwohnung-unten' %}" aria-current="page">Untere
+                Ferienwohnung</a>
               <a class="dropdown-item" href="{% url 'haus-mieten' %}" aria-current="page">Haus mieten</a>
               <a class="dropdown-item" href="{% url 'hausregeln' %}" aria-current="page">Hausregeln</a>
             </div>
@@ -98,7 +99,8 @@
           </li>
           {% endif %}
           <li class="nav-item">
-            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'ueber-uns' %}" aria-current="page">Über Uns</a>
+            <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'ueber-uns' %}" aria-current="page">Über
+              Uns</a>
           </li>
           <li class="nav-item">
             <a class="nav-link hvr-bounce-in margin-left-right" href="{% url 'kontakt' %}"
@@ -141,7 +143,7 @@
         </div>
         {% endif %}
         <div class="col-sm-6 d-flex justify-content-end footer-font-size">
-          © 2024 Rafaela Wetzel
+          ©&nbsp;<span id="copyright"></span>&nbsp;Schlosskulm Ferienwohnungen
         </div>
       </div>
     </div>
@@ -151,6 +153,10 @@
   <!-- Bootstrap 5.3 Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+  <!-- Get current year for footer information -->
+  <script>
+    $("#copyright").text(new Date().getFullYear());
   </script>
   <!-- Manage Bookings JS File-->
   <script src="{% static 'js/manage-bookings.js' %}"></script>

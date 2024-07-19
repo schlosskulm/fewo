@@ -27,7 +27,7 @@ class BookingForm(forms.ModelForm):
             'booking_item': 'Buchungsgegenstand',
             'arrival_date': 'Anreisedatum',
             'departure_date': 'Abreisedatum',
-            'amount_guests': 'Anzahl der Gäst*innen',
+            'amount_guests': 'Anzahl der Gäste',
             'nationality': 'Nationalität',
             'passport_number': 'Passnummer',
             'animals': 'Tiere',
